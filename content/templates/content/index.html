@@ -1,0 +1,24 @@
+<a href="{% url 'user_index' %}">
+    View user
+</a>
+
+<br>
+
+<a href="{% url 'new_post' %}">
+    Create new post
+</a>
+
+<h1>POSTS</h1>
+{% for post in posts %}
+<h1>#{{ post.id }} {{ post.title }}</h1>
+<p>{{ post.text }}</p>
+<p>{{ post.user }}</p>
+<p>{{ post.user.id }}</p>
+<p>{{ post.user.first_name }}</p>
+<a href="{% url 'edit_post' post.id %}">
+    {% url 'edit_post' post.id %}
+</a>
+<a href="{% url 'delete_post' post.id %}">
+    {% url 'delete_post' post.id %}
+</a>
+{% endfor %}
